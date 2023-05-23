@@ -59,7 +59,7 @@ string Answer(int num)
     return answers[num];
 }
 
-    MooseSays("*** Hello, 'tis I, the Magic Moose! ***");
+    MooseSays("*** 'Tis I, the Magic Moose! ***");
     MooseSpeaks("Ask any question, and I shall provide an answer.");
 
 int Random()
@@ -87,10 +87,34 @@ bool MooseAsks(string question)
     }
 }
 
+void Poof()
+{
+    Console.WriteLine(@"
+                                 
+         *     *      *          
+      *   \\   |    //              
+       \  *  *    *     *              
+        *   ** //   *  /                  
+    *==   * * ***    ==*                          
+     *  *  ** ** ** =*  ==*                       
+    *=  * ** ** ** *   ==*               
+       *  * *** ** * *                        
+         / *   * * \ *  *          
+        *   *       *                   
+                          
+");
+}
+
 void MooseReplies()
 {
     MooseAsks("What is thine question?");
     MooseSpeaks(Answer(Random()));
+    while (MooseAsks("You may ask another question, or press 'Enter' and I shall disappear."))
+    {
+        MooseSpeaks(Answer(Random()));
+    }
+    MooseSpeaks("Fair thee well!");
+    Poof();
 }
 
 MooseReplies();
